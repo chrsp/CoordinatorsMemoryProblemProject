@@ -1,0 +1,6 @@
+framework module Pods_CoordinatorsMemoryProblemProject {
+  umbrella header "Pods-CoordinatorsMemoryProblemProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
