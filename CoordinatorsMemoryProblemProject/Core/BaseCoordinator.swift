@@ -14,13 +14,13 @@ protocol Coordinator : class {
 open class BaseCoordinator: Coordinator {
 
     public let disposeBag: DisposeBag = DisposeBag()
-    
+
     let router: Router
-    
-    let identifier = UUID()
+
     var childCoordinators = [Coordinator]()
-    var parentCoordinator: Any?
-    
+    var returningData: [Any]?
+    //var parentCoordinator: Coordinator?
+
     public init(router: Router) {
         self.router = router
     }
@@ -34,12 +34,16 @@ open class BaseCoordinator: Coordinator {
         childCoordinators.removeAll()
     }
 
-    func coordinate(_ coordinator: Coordinator) -> Observable<Void> {
+    func coordinate(_ coordinator: Coordinator, returning data: (([Any]) -> Void)? = nil)  -> Observable<Void> {
         self.store(coordinator: coordinator)
         return coordinator
             .start()
             .do(onNext: { [weak self, weak coordinator] _ in
                 self?.free(coordinator: coordinator)
+
+                if let returningData = self?.returningData {
+                    data?(returningData)
+                }
             })
     }
 

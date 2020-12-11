@@ -22,7 +22,6 @@ class HomeCoordinator: BaseCoordinator {
         // from memory. The ViewControllers should be removed from the navigation stack, and the coordinators
         // should also be disposed.
         
-        return Observable.merge(router.rx.push(controller, isAnimated: true),
-                                SessionManager.shared.didFinishSession.take(1))
+        return router.rx.push(controller, isAnimated: true)
     }
 }

@@ -37,6 +37,7 @@ public class AppCoordinator: BaseCoordinator {
         
         SessionManager.shared.didFinishSession.bind {
             self.router.popToViewController(self.viewController, animated: true)
+            self.childCoordinators.removeAll()
         }.disposed(by: disposeBag)
 
         return Observable.never()
