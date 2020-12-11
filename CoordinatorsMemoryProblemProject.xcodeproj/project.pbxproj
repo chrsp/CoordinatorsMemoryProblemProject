@@ -32,6 +32,7 @@
 		34F6220C25827403004E2F22 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6220B25827403004E2F22 /* HomeViewModel.swift */; };
 		34F6221125827429004E2F22 /* OnboardingSceneOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6221025827429004E2F22 /* OnboardingSceneOneViewModel.swift */; };
 		34F622162582743A004E2F22 /* OnboardingSceneTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F622152582743A004E2F22 /* OnboardingSceneTwoViewModel.swift */; };
+		34F6221B25838997004E2F22 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6221A25838997004E2F22 /* SessionManager.swift */; };
 		9DC53264C7BC5D2FA86DC44D /* Pods_CoordinatorsMemoryProblemProject_CoordinatorsMemoryProblemProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC321A1D3571635D942C99F /* Pods_CoordinatorsMemoryProblemProject_CoordinatorsMemoryProblemProjectUITests.framework */; };
 		A2052B0C2E9A3AA84DA71B5D /* Pods_CoordinatorsMemoryProblemProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FD3BE73D8D439148D2A19F /* Pods_CoordinatorsMemoryProblemProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		34F6220B25827403004E2F22 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		34F6221025827429004E2F22 /* OnboardingSceneOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSceneOneViewModel.swift; sourceTree = "<group>"; };
 		34F622152582743A004E2F22 /* OnboardingSceneTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSceneTwoViewModel.swift; sourceTree = "<group>"; };
+		34F6221A25838997004E2F22 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4B920CF09CE4CD288B4F8973 /* Pods-CoordinatorsMemoryProblemProject-CoordinatorsMemoryProblemProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoordinatorsMemoryProblemProject-CoordinatorsMemoryProblemProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-CoordinatorsMemoryProblemProject-CoordinatorsMemoryProblemProjectUITests/Pods-CoordinatorsMemoryProblemProject-CoordinatorsMemoryProblemProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		65F3342858AD4D9E144FF55E /* Pods_CoordinatorsMemoryProblemProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoordinatorsMemoryProblemProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E51B264C53F6BE7603BA12 /* Pods-CoordinatorsMemoryProblemProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoordinatorsMemoryProblemProject.release.xcconfig"; path = "Target Support Files/Pods-CoordinatorsMemoryProblemProject/Pods-CoordinatorsMemoryProblemProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				34F6214625826445004E2F22 /* BaseView.swift */,
 				34F6214E2582648E004E2F22 /* BaseViewModel.swift */,
 				34F6219125826878004E2F22 /* Router.swift */,
+				34F6221A25838997004E2F22 /* SessionManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				34F622162582743A004E2F22 /* OnboardingSceneTwoViewModel.swift in Sources */,
 				34F62170258266D7004E2F22 /* AppCoordinator.swift in Sources */,
 				34F621C525826B1F004E2F22 /* GenericViewModel.swift in Sources */,
+				34F6221B25838997004E2F22 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,10 @@ public class AppCoordinator: BaseCoordinator<Void> {
             let destinationCoordinator = OnboardingSceneOneCoordinator(router: router)
             self.coordinate(to: destinationCoordinator).subscribe().disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
+        
+        SessionManager.shared.didFinishSession.bind {
+            viewController.navigationController?.popToViewController(viewController, animated: true)
+        }.disposed(by: disposeBag)
 
         return Observable.never()
     }

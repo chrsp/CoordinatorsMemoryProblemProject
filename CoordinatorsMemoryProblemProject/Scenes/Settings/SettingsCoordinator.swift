@@ -19,10 +19,11 @@ class SettingsCoordinator: BaseCoordinator<Void> {
         let viewModel = SettingsViewModel()
         let controller = GenericViewController(viewModel: viewModel)
         
-//        viewModel.didTapOnNextButton.bind { [weak self] in
-//            
-//        }.disposed(by: disposeBag)
+        viewModel.didTapOnNextButton.bind { [weak self] in
+            SessionManager.shared.didFinishSession.onNext(())
+        }.disposed(by: disposeBag)
 
-        return router.rx.push(controller, isAnimated: true)
+        return Observable.merge(router.rx.push(controller, isAnimated: true),
+                                SessionManager.shared.didFinishSession.take(1))
     }
 }

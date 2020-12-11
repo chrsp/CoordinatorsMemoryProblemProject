@@ -25,6 +25,7 @@ class OnboardingSceneTwoCoordinator: BaseCoordinator<Void> {
             self.coordinate(to: destinationCoordinator).subscribe().disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
         
-        return router.rx.push(controller, isAnimated: true)
+        return Observable.merge(router.rx.push(controller, isAnimated: true),
+                                SessionManager.shared.didFinishSession.take(1))
     }
 }
