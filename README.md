@@ -1,5 +1,7 @@
 # CoordinatorsMemoryProblemProject
 
+[UPDATE 2020/12/11: A solution for this problem was added in the branch `feature/new-coordinators-model`. However, that's changes the way the Coordinators works. Before this the Coordinators as Generic classes that was able to pass data to its caller by using the `subscribe(onNext: )` method. With this solution, this is not possible anymore].
+
 This project was created to describe a possible problem in the usage of Coordinators (in this case, with RxSwift).
 
 The Project has 5 screens: Intro, Onboarding 1, Onboarding 2, Home and Settings.
