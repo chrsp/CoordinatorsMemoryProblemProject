@@ -5,7 +5,7 @@
 
 import RxSwift
 
-class SettingsCoordinator: BaseCoordinator<Void> {
+class SettingsCoordinator: BaseCoordinator {
     
     override public func start() -> Observable<Void> {
 

@@ -5,7 +5,7 @@
 
 import RxSwift
 
-class OnboardingSceneTwoCoordinator: BaseCoordinator<Void> {
+class OnboardingSceneTwoCoordinator: BaseCoordinator {
 
     override public func start() -> Observable<Void> {
 
@@ -15,7 +15,7 @@ class OnboardingSceneTwoCoordinator: BaseCoordinator<Void> {
         viewModel.didTapOnNextButton.bind { [weak self] in
             guard let self = self else { return }
             let destinationCoordinator = HomeCoordinator(router: self.router)
-            self.coordinate(to: destinationCoordinator).subscribe().disposed(by: self.disposeBag)
+            self.coordinate(destinationCoordinator).subscribe().disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
         
         return Observable.merge(router.rx.push(controller, isAnimated: true),

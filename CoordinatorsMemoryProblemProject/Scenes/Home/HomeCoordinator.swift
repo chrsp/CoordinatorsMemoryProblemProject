@@ -5,7 +5,7 @@
 
 import RxSwift
 
-class HomeCoordinator: BaseCoordinator<Void> {
+class HomeCoordinator: BaseCoordinator {
 
     override public func start() -> Observable<Void> {
 
@@ -15,7 +15,7 @@ class HomeCoordinator: BaseCoordinator<Void> {
         viewModel.didTapOnNextButton.bind { [weak self] in
             guard let self = self else { return }
             let destinationCoordinator = SettingsCoordinator(router: self.router)
-            self.coordinate(to: destinationCoordinator).subscribe().disposed(by: self.disposeBag)
+            self.coordinate(destinationCoordinator).subscribe().disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
         
         // MARK: - HERE, after the home was presented, the Scene one and Two objects should be disposed

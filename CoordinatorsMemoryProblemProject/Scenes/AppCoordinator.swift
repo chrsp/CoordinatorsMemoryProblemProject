@@ -3,7 +3,7 @@
 import Foundation
 import RxSwift
 
-public class AppCoordinator: BaseCoordinator<Void> {
+public class AppCoordinator: BaseCoordinator {
 
     let window: UIWindow
     
@@ -32,7 +32,7 @@ public class AppCoordinator: BaseCoordinator<Void> {
         viewModel.didTapOnNextButton.bind { [weak self] in
             guard let self = self else { return }
             let destinationCoordinator = OnboardingSceneOneCoordinator(router: self.router)
-            self.coordinate(to: destinationCoordinator).subscribe().disposed(by: self.disposeBag)
+            self.coordinate(destinationCoordinator).subscribe().disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
         
         SessionManager.shared.didFinishSession.bind {

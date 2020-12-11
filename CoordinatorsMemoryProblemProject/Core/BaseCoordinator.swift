@@ -6,38 +6,44 @@
 import Foundation
 import RxSwift
 
-open class BaseCoordinator<ResultType> {
+protocol Coordinator : class {
+    var childCoordinators : [Coordinator] { get set }
+    func start() -> Observable<Void>
+}
 
-    typealias CoordinationResult = ResultType
+open class BaseCoordinator: Coordinator {
 
     public let disposeBag: DisposeBag = DisposeBag()
     
     let router: Router
     
     let identifier = UUID()
-    var childCoordinators = [UUID: Any]()
+    var childCoordinators = [Coordinator]()
     var parentCoordinator: Any?
     
     public init(router: Router) {
         self.router = router
     }
 
-    private func store<T>(coordinator: BaseCoordinator<T>) {
-        coordinator.parentCoordinator = self
-        childCoordinators[coordinator.identifier] = coordinator
+    private func store(coordinator: Coordinator) {
+        //coordinator.parentCoordinator = self
+        childCoordinators.append(coordinator)
     }
 
-    private func free<T>(coordinator: BaseCoordinator<T>) {
-        childCoordinators[coordinator.identifier] = nil
+    private func free(coordinator: Coordinator?) {
+        childCoordinators.removeAll()
     }
 
-    public func coordinate<T>(to coordinator: BaseCoordinator<T>) -> Observable<T> {
-        store(coordinator: coordinator)
-        return coordinator.start()
-            .do(onNext: { [weak self] _ in self?.free(coordinator: coordinator) })
+    func coordinate(_ coordinator: Coordinator) -> Observable<Void> {
+        self.store(coordinator: coordinator)
+        return coordinator
+            .start()
+            .do(onNext: { [weak self, weak coordinator] _ in
+                self?.free(coordinator: coordinator)
+            })
     }
 
-    open func start() -> Observable<ResultType> {
+    open func start() -> Observable<Void> {
         fatalError("Start method should be implemented.")
     }
 }
