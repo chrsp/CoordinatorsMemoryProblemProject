@@ -6,13 +6,6 @@
 import RxSwift
 
 class OnboardingSceneOneCoordinator: BaseCoordinator<Void> {
-    
-    var router: Router
-
-    public init(router: Router) {
-        self.router = router
-        super.init()
-    }
 
     override public func start() -> Observable<Void> {
 

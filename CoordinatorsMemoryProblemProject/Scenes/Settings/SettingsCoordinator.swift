@@ -7,13 +7,6 @@ import RxSwift
 
 class SettingsCoordinator: BaseCoordinator<Void> {
     
-    var router: Router
-
-    public init(router: Router) {
-        self.router = router
-        super.init()
-    }
-
     override public func start() -> Observable<Void> {
 
         let viewModel = SettingsViewModel()

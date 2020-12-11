@@ -10,16 +10,20 @@ open class BaseCoordinator<ResultType> {
 
     typealias CoordinationResult = ResultType
 
-    public let disposeBag: DisposeBag
+    public let disposeBag: DisposeBag = DisposeBag()
     
-    private let identifier = UUID()
-    private var childCoordinators = [UUID: Any]()
+    let router: Router
     
-    public init() {
-        disposeBag = DisposeBag()
+    let identifier = UUID()
+    var childCoordinators = [UUID: Any]()
+    var parentCoordinator: Any?
+    
+    public init(router: Router) {
+        self.router = router
     }
 
     private func store<T>(coordinator: BaseCoordinator<T>) {
+        coordinator.parentCoordinator = self
         childCoordinators[coordinator.identifier] = coordinator
     }
 

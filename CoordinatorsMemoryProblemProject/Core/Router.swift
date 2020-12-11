@@ -20,6 +20,8 @@ protocol RouterProtocol: class {
     func present(_ drawable: Drawable,
                  isAnimated: Bool,
                  onDismissed closure: NavigationClosure?)
+    
+    func popToViewController(_ viewController: UIViewController, animated: Bool)
 }
 
 //
@@ -30,6 +32,10 @@ public enum RouterFlowType {
 }
 
 public class Router: NSObject, RouterProtocol {
+    func popToViewController(_ viewController: UIViewController, animated: Bool) {
+        navigationController.popToViewController(viewController, animated: animated)
+    }
+    
     
     public var flowType: RouterFlowType = .push
     private let shouldHideBackButton: Bool = false
